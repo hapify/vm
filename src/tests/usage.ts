@@ -20,6 +20,6 @@ lab.test('return non string', async () => {
 });
 
 lab.test('timeout', async () => {
-    expect(() => new HapifyVM({ timeout: 200 }).run('while(true) {}', {})).to.throw('Script execution timed out.');
+    expect(() => new HapifyVM({ timeout: 200 }).run('while(true) {}', {})).to.throw('Script execution timed out. (200ms)');
 });
 

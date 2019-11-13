@@ -94,7 +94,7 @@ export class HapifyVM {
 		}
 
 		if (typeof result !== "undefined" && typeof result !== "string") {
-			throw new OutputError('Output must return a string');
+			throw new OutputError('Must return a string');
 		}
 
 		return result;
