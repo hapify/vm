@@ -7,8 +7,9 @@
     "start": "node dist/src/index.js",
     "watch": "rm -rf dist && tsc -w",
     "build": "rm -rf dist && ./node_modules/.bin/tsc -p .",
-    "test": "./node_modules/.bin/lab dist/tests/api",
-    "lint": "./node_modules/.bin/prettier --write '**/*{.js,.ts}'"
+    "test": "./node_modules/.bin/lab dist/tests",
+    "lint": "./node_modules/.bin/prettier --write '**/*{.js,.ts}'",
+    "install": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -16,14 +17,19 @@
   },
   "keywords": [
     "hapify",
-    "vm",
+    "vm"
   ],
   "author": "Edouard Demotes-Mainard <edouard@tractr.net>",
   "license": "ISC",
   "homepage": "https://bitbucket.org/tractrs/hapify-vm#readme",
   "devDependencies": {
+    "@hapi/code": "^7.0.0",
+    "@hapi/lab": "^21.0.0"
   },
   "dependencies": {
+    "@types/node": "^12.12.7",
+    "typescript": "^3.2.2",
+    "vm2": "^3.8.4"
   },
   "engines": {
     "node": ">=9.2.0"
