@@ -1,4 +1,3 @@
-
 import { VM } from 'vm2';
 
 const SECOND = 1000;
@@ -28,7 +27,6 @@ export class IntegrityError extends Error {
 }
 
 export class HapifyVM {
-
 	/** Default options */
 	private defaultOptions: HapifyVMOptions = {
 		timeout: SECOND
@@ -54,13 +52,12 @@ export class HapifyVM {
 
 	/** Execute content */
 	run(content: string, context: { [key: string]: any }): string {
-
 		let result;
 
 		const vm = new VM({
 			timeout: this.options.timeout,
 			sandbox: Object.assign(context, this.forbiddenObjects),
-			compiler: "javascript",
+			compiler: 'javascript',
 			eval: false,
 			wasm: false
 		});
@@ -69,7 +66,6 @@ export class HapifyVM {
 		try {
 			result = vm.run(wrappedContent);
 		} catch (error) {
-
 			// Check error
 			if (typeof error.message !== 'string' || typeof error.stack !== 'string') {
 				throw new IntegrityError('Invalid error');
@@ -93,7 +89,7 @@ export class HapifyVM {
 			throw evalError;
 		}
 
-		if (typeof result !== "undefined" && typeof result !== "string") {
+		if (typeof result !== 'undefined' && typeof result !== 'string') {
 			throw new OutputError('Must return a string');
 		}
 

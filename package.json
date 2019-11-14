@@ -24,7 +24,8 @@
   "homepage": "https://bitbucket.org/tractrs/hapify-vm#readme",
   "devDependencies": {
     "@hapi/code": "^7.0.0",
-    "@hapi/lab": "^21.0.0"
+    "@hapi/lab": "^21.0.0",
+    "prettier": "^1.15.3"
   },
   "dependencies": {
     "@types/node": "^12.12.7",
