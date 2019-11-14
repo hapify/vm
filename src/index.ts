@@ -86,7 +86,7 @@ export class HapifyVM {
 				const lineNumber = Number(matches[1]);
 				const columnNumber = Number(matches[2]);
 				evalError.details = `Error: ${evalError.message}. Line: ${lineNumber}, Column: ${columnNumber}`;
-				evalError.lineNumber = lineNumber;
+				evalError.lineNumber = lineNumber - 1; // Minus 1 for wrapper
 				evalError.columnNumber = columnNumber;
 			}
 
