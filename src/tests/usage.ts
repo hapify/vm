@@ -16,11 +16,25 @@ lab.test('no return', async () => {
 });
 
 lab.test('return non string', async () => {
-	expect(() => new HapifyVM().run('return 1;', {})).to.throw('Must return a string');
+	try {
+		new HapifyVM().run('return 1;', {});
+		fail('Should throw an error');
+	} catch (e) {
+		expect(e.name).to.equal('VmOutputError');
+		expect(e.code).to.equal(6001);
+		expect(e.message).to.equal('Must return a string');
+	}
 });
 
 lab.test('timeout', async () => {
-	expect(() => new HapifyVM({ timeout: 200 }).run('while(true) {}', {})).to.throw('Script execution timed out. (200ms)');
+	try {
+		new HapifyVM({ timeout: 200 }).run('while(true) {}', {});
+		fail('Should throw an error');
+	} catch (e) {
+		expect(e.name).to.equal('VmTimeoutError');
+		expect(e.code).to.equal(6003);
+		expect(e.message).to.equal('Script execution timed out. (200ms)');
+	}
 });
 
 lab.test('evaluation error 1', async () => {
@@ -28,6 +42,8 @@ lab.test('evaluation error 1', async () => {
 		new HapifyVM({ timeout: 200 }).run('/* comment */ a();', {});
 		fail('Should throw an error');
 	} catch (e) {
+		expect(e.name).to.equal('VmEvaluationError');
+		expect(e.code).to.equal(6002);
 		expect(e.message).to.equal('a is not defined');
 		expect(e.details).to.be.a.string();
 		expect(e.lineNumber).to.equal(1);
@@ -40,6 +56,8 @@ lab.test('evaluation error 2', async () => {
 		new HapifyVM({ timeout: 200 }).run('function() { return 3;', {});
 		fail('Should throw an error');
 	} catch (e) {
+		expect(e.name).to.equal('VmEvaluationError');
+		expect(e.code).to.equal(6002);
 		expect(e.message).to.equal('Unexpected token (');
 		expect(e.details).to.be.a.string();
 		expect(e.lineNumber).to.be.a.number();

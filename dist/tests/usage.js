@@ -31,10 +31,26 @@ lab.test('no return', () => __awaiter(void 0, void 0, void 0, function* () {
     code_1.expect(new index_1.HapifyVM().run('return;', {})).to.be.undefined();
 }));
 lab.test('return non string', () => __awaiter(void 0, void 0, void 0, function* () {
-    code_1.expect(() => new index_1.HapifyVM().run('return 1;', {})).to.throw('Must return a string');
+    try {
+        new index_1.HapifyVM().run('return 1;', {});
+        code_1.fail('Should throw an error');
+    }
+    catch (e) {
+        code_1.expect(e.name).to.equal('VmOutputError');
+        code_1.expect(e.code).to.equal(6001);
+        code_1.expect(e.message).to.equal('Must return a string');
+    }
 }));
 lab.test('timeout', () => __awaiter(void 0, void 0, void 0, function* () {
-    code_1.expect(() => new index_1.HapifyVM({ timeout: 200 }).run('while(true) {}', {})).to.throw('Script execution timed out. (200ms)');
+    try {
+        new index_1.HapifyVM({ timeout: 200 }).run('while(true) {}', {});
+        code_1.fail('Should throw an error');
+    }
+    catch (e) {
+        code_1.expect(e.name).to.equal('VmTimeoutError');
+        code_1.expect(e.code).to.equal(6003);
+        code_1.expect(e.message).to.equal('Script execution timed out. (200ms)');
+    }
 }));
 lab.test('evaluation error 1', () => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -42,6 +58,8 @@ lab.test('evaluation error 1', () => __awaiter(void 0, void 0, void 0, function*
         code_1.fail('Should throw an error');
     }
     catch (e) {
+        code_1.expect(e.name).to.equal('VmEvaluationError');
+        code_1.expect(e.code).to.equal(6002);
         code_1.expect(e.message).to.equal('a is not defined');
         code_1.expect(e.details).to.be.a.string();
         code_1.expect(e.lineNumber).to.equal(1);
@@ -54,6 +72,8 @@ lab.test('evaluation error 2', () => __awaiter(void 0, void 0, void 0, function*
         code_1.fail('Should throw an error');
     }
     catch (e) {
+        code_1.expect(e.name).to.equal('VmEvaluationError');
+        code_1.expect(e.code).to.equal(6002);
         code_1.expect(e.message).to.equal('Unexpected token (');
         code_1.expect(e.details).to.be.a.string();
         code_1.expect(e.lineNumber).to.be.a.number();

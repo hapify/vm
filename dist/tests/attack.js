@@ -65,6 +65,14 @@ lab.test('throw evil error 1', () => __awaiter(void 0, void 0, void 0, function*
 }));
 lab.test('throw evil error 2', () => __awaiter(void 0, void 0, void 0, function* () {
     const script = 'throw { stack: { toString: function() { /* Bad function */ } } };';
-    code_1.expect(() => new index_1.HapifyVM().run(script, {})).to.throw('Invalid error');
+    try {
+        new index_1.HapifyVM().run(script, {});
+        code_1.fail('Should throw an error');
+    }
+    catch (e) {
+        code_1.expect(e.name).to.equal('VmIntegrityError');
+        code_1.expect(e.code).to.equal(6004);
+        code_1.expect(e.message).to.equal('Invalid error');
+    }
 }));
 //# sourceMappingURL=attack.js.map

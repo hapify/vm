@@ -1,4 +1,4 @@
-import { expect } from '@hapi/code';
+import {expect, fail} from '@hapi/code';
 import * as Lab from '@hapi/lab';
 const lab = (exports.lab = Lab.script());
 
@@ -52,5 +52,12 @@ lab.test('throw evil error 1', async () => {
 });
 lab.test('throw evil error 2', async () => {
 	const script = 'throw { stack: { toString: function() { /* Bad function */ } } };';
-	expect(() => new HapifyVM().run(script, {})).to.throw('Invalid error');
+	try {
+		new HapifyVM().run(script, {});
+		fail('Should throw an error');
+	} catch (e) {
+		expect(e.name).to.equal('VmIntegrityError');
+		expect(e.code).to.equal(6004);
+		expect(e.message).to.equal('Invalid error');
+	}
 });
