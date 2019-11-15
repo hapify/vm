@@ -37,6 +37,6 @@ export declare class HapifyVM {
     /** Execute content */
     run(content: string, context: {
         [key: string]: any;
-    }): string;
+    }): string | any;
 }
 export {};

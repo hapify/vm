@@ -53,7 +53,7 @@ export class HapifyVM {
 	}
 
 	/** Execute content */
-	run(content: string, context: { [key: string]: any }): string {
+	run(content: string, context: { [key: string]: any }): string | any {
 		let result;
 
 		const vm = new VM({
