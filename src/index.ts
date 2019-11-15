@@ -4,6 +4,7 @@ const SECOND = 1000;
 
 interface HapifyVMOptions {
 	timeout?: number;
+	allowAnyOutput?: boolean;
 }
 
 export class OutputError extends Error {
@@ -29,7 +30,8 @@ export class IntegrityError extends Error {
 export class HapifyVM {
 	/** Default options */
 	private defaultOptions: HapifyVMOptions = {
-		timeout: SECOND
+		timeout: SECOND,
+		allowAnyOutput: false
 	};
 	/** Actual options */
 	private options: HapifyVMOptions;
@@ -89,7 +91,7 @@ export class HapifyVM {
 			throw evalError;
 		}
 
-		if (typeof result !== 'undefined' && typeof result !== 'string') {
+		if (!this.options.allowAnyOutput && typeof result !== 'undefined' && typeof result !== 'string') {
 			throw new OutputError('Must return a string');
 		}
 

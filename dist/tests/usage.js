@@ -41,6 +41,9 @@ lab.test('return non string', () => __awaiter(void 0, void 0, void 0, function* 
         code_1.expect(e.message).to.equal('Must return a string');
     }
 }));
+lab.test('return non string but allowed', () => __awaiter(void 0, void 0, void 0, function* () {
+    code_1.expect(new index_1.HapifyVM({ allowAnyOutput: true }).run('return 1', {})).to.equal(1);
+}));
 lab.test('timeout', () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         new index_1.HapifyVM({ timeout: 200 }).run('while(true) {}', {});

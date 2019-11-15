@@ -26,6 +26,10 @@ lab.test('return non string', async () => {
 	}
 });
 
+lab.test('return non string but allowed', async () => {
+	expect(new HapifyVM({ allowAnyOutput: true }).run('return 1', {})).to.equal(<any>1);
+});
+
 lab.test('timeout', async () => {
 	try {
 		new HapifyVM({ timeout: 200 }).run('while(true) {}', {});

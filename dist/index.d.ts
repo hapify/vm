@@ -1,5 +1,6 @@
 interface HapifyVMOptions {
     timeout?: number;
+    allowAnyOutput?: boolean;
 }
 export declare class OutputError extends Error {
     code: number;

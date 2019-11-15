@@ -42,7 +42,8 @@ class HapifyVM {
     constructor(options = {}) {
         /** Default options */
         this.defaultOptions = {
-            timeout: SECOND
+            timeout: SECOND,
+            allowAnyOutput: false
         };
         /** RegEx used to extract error's line & column */
         this.stackRegex = /vm\.js:([0-9]+):([0-9]+)/m;
@@ -86,7 +87,7 @@ class HapifyVM {
             }
             throw evalError;
         }
-        if (typeof result !== 'undefined' && typeof result !== 'string') {
+        if (!this.options.allowAnyOutput && typeof result !== 'undefined' && typeof result !== 'string') {
             throw new OutputError('Must return a string');
         }
         return result;
