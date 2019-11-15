@@ -8,8 +8,7 @@
     "watch": "rm -rf dist && tsc -w",
     "build": "rm -rf dist && ./node_modules/.bin/tsc -p .",
     "test": "./node_modules/.bin/lab dist/tests",
-    "lint": "./node_modules/.bin/prettier --write '**/*{.js,.ts}'",
-    "install": "npm run build"
+    "lint": "./node_modules/.bin/prettier --write '**/*{.js,.ts}'"
   },
   "repository": {
     "type": "git",
