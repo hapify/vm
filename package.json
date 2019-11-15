@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Sandbox for JavaScript code",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "start": "node dist/src/index.js",
     "watch": "rm -rf dist && tsc -w",
