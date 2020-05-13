@@ -1,4 +1,4 @@
-import {expect, fail} from '@hapi/code';
+import { expect, fail } from '@hapi/code';
 import * as Lab from '@hapi/lab';
 const lab = (exports.lab = Lab.script());
 

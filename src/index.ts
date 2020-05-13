@@ -31,7 +31,7 @@ export class HapifyVM {
 	/** Default options */
 	private defaultOptions: HapifyVMOptions = {
 		timeout: SECOND,
-		allowAnyOutput: false
+		allowAnyOutput: false,
 	};
 	/** Actual options */
 	private options: HapifyVMOptions;
@@ -61,7 +61,7 @@ export class HapifyVM {
 			sandbox: Object.assign(context, this.forbiddenObjects),
 			compiler: 'javascript',
 			eval: false,
-			wasm: false
+			wasm: false,
 		});
 		const wrappedContent = this.wrap(content);
 
