@@ -6,11 +6,26 @@ This repository provides a secured sandbox to execute unsafe JavaScript code
 
 ## Usage
 
+### Basic usage
+
+```typescript
+import { HapifyVM } from 'hapify-vm';
+
+const script = `const concat = a + b; return concat;`;
+const result = new HapifyVM().run(script, { a: 'hello', b: 'world' }); // result = 'hello world'
+```
+
+### Advanced usage
+
 ```typescript
 import { HapifyVM } from 'hapify-vm';
 
 const script = `const sum = a + b; return sum;`;
-const result = new HapifyVM().run(script, { a: 1, b: 2 }); // result = 3
+const options = {
+    timeout: 200, // Maximum script execution time. Default to 1000ms.
+    allowAnyOutput: true // Allow the input script to return any data type. Default to false.
+};
+const result = new HapifyVM(options).run(script, { a: 1, b: 2 }); // result = 3
 ```
 
 ## Errors sent by this module
