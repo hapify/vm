@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "start": "node dist/src/index.js",
+    "start": "node dist/index.js",
     "update": "./node_modules/npm-check/bin/cli.js -u",
     "watch": "rm -rf dist && tsc -w",
     "build": "rm -rf dist && ./node_modules/.bin/tsc -p .",
