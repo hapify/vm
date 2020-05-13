@@ -4,6 +4,8 @@
 
 This repository provides a secured sandbox to execute unsafe JavaScript code
 
+[![Build Status](https://travis-ci.org/hapify/vm.svg?branch=master)](https://travis-ci.org/hapify/vm)
+
 ## Usage
 
 ### Basic usage
