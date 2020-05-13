@@ -9,8 +9,8 @@
     "declaration": true,
     "outDir": "dist",
     "baseUrl": ".",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
+    "emitDecoratorMetadata": false,
+    "experimentalDecorators": false,
     "paths": {
       "*": [
         "node_modules/*",

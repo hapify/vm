@@ -10,7 +10,7 @@
     "update": "npm-check -u",
     "watch": "rm -rf dist && tsc -w",
     "build": "rm -rf dist && tsc -p .",
-    "test": "lab --sourcemaps dist/tests",
+    "test": "lab dist/tests",
     "lint": "prettier --write '**/*.ts'"
   },
   "repository": {
