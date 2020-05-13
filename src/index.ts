@@ -73,8 +73,8 @@ export class HapifyVM {
 				throw new IntegrityError('Invalid error');
 			}
 
-			if (error.message === 'Script execution timed out.') {
-				throw new TimeoutError(`Script execution timed out. (${this.options.timeout}ms)`);
+			if (error.message.startsWith('Script execution timed out')) {
+				throw new TimeoutError(error.message);
 			}
 
 			// Parse error

@@ -37,7 +37,7 @@ lab.test('timeout', async () => {
 	} catch (e) {
 		expect(e.name).to.equal('VmTimeoutError');
 		expect(e.code).to.equal(6003);
-		expect(e.message).to.equal('Script execution timed out. (200ms)');
+		expect(e.message).to.equal('Script execution timed out after 200ms');
 	}
 });
 
@@ -57,12 +57,12 @@ lab.test('evaluation error 1', async () => {
 
 lab.test('evaluation error 2', async () => {
 	try {
-		new HapifyVM({ timeout: 200 }).run('function() { return 3;', {});
+		new HapifyVM({ timeout: 200 }).run('function f() { return 3;', {});
 		fail('Should throw an error');
 	} catch (e) {
 		expect(e.name).to.equal('VmEvaluationError');
 		expect(e.code).to.equal(6002);
-		expect(e.message).to.equal('Unexpected token (');
+		expect(e.message).to.equal("Unexpected token ')'");
 		expect(e.details).to.be.a.string();
 		expect(e.lineNumber).to.be.a.number();
 		expect(e.columnNumber).to.be.a.number();

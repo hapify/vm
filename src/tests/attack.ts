@@ -19,7 +19,7 @@ lab.test('require accesses 2', async () => {
 lab.test('global values', async () => {
 	const script = 'return JSON.stringify(Object.keys(global));';
 	const result = JSON.parse(new HapifyVM().run(script, {}));
-	expect(result).to.equal(['VMError', 'Proxy', 'Buffer']);
+	expect(result).to.equal(['VMError', 'Buffer']);
 });
 lab.test('process deep accesses', async () => {
 	const script = 'models.constructor.constructor("return { process }")().exit()';
