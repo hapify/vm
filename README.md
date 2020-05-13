@@ -4,6 +4,15 @@
 
 This repository provides a secured sandbox to execute unsafe JavaScript code
 
+## Usage
+
+```typescript
+import { HapifyVM } from 'hapify-vm';
+
+const script = `const sum = a + b; return sum;`;
+const result = new HapifyVM().run(script, { a: 1, b: 2 }); // result = 3
+```
+
 ## Errors sent by this module
 
 Errors range: 6000 to 6999
