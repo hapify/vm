@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.HapifyVM = exports.IntegrityError = exports.TimeoutError = exports.EvaluationError = exports.OutputError = void 0;
 const vm2_1 = require("vm2");
 const SECOND = 1000;
 class OutputError extends Error {
