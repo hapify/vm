@@ -4,5 +4,5 @@ module.exports = {
     threshold: 95,
     sourcemaps: true,
     reporter: ['console', 'html', 'lcov', 'json'],
-    output: ['stdout', 'coverage-report/coverage.html', 'coverage-report/lcov.info', 'coverage-report/data.json']
+    output: ['stdout', 'coverage/coverage.html', 'coverage/lcov.info', 'coverage/data.json']
 };
