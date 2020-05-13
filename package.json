@@ -6,6 +6,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "start": "node dist/src/index.js",
+    "update": "./node_modules/npm-check/bin/cli.js -u",
     "watch": "rm -rf dist && tsc -w",
     "build": "rm -rf dist && ./node_modules/.bin/tsc -p .",
     "test": "./node_modules/.bin/lab dist/tests",
@@ -32,6 +33,7 @@
   },
   "dependencies": {
     "@types/node": "^12.12.7",
+    "npm-check": "^5.9.2",
     "typescript": "^3.2.2",
     "vm2": "^3.8.4"
   },
