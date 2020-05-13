@@ -6,10 +6,11 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "start": "node dist/index.js",
+    "postinstall": "npm run build",
     "update": "./node_modules/npm-check/bin/cli.js -u",
     "watch": "rm -rf dist && tsc -w",
     "build": "rm -rf dist && ./node_modules/.bin/tsc -p .",
-    "test": "./node_modules/.bin/lab dist/tests",
+    "test": "./node_modules/.bin/lab --sourcemaps dist/tests",
     "lint": "./node_modules/.bin/prettier --write '**/*.ts'"
   },
   "repository": {
