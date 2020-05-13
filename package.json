@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/tractrs/hapify-vm.git"
+    "url": "git+ssh://git@github.com:hapify/vm.git"
   },
   "keywords": [
     "hapify",
@@ -22,7 +22,7 @@
   ],
   "author": "Edouard Demotes-Mainard <edouard@tractr.net>",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/tractrs/hapify-vm#readme",
+  "homepage": "https://github.com/hapify/vm#readme",
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
