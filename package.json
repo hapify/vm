@@ -1,16 +1,11 @@
 {
   "name": "hapify-vm",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Sandbox for JavaScript code",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "src/index.ts",
   "scripts": {
-    "start": "node dist/index.js",
-    "postinstall": "npm run build",
     "update": "npm-check -u",
-    "watch": "rm -rf dist && tsc -w",
-    "build": "rm -rf dist && tsc -p .",
-    "test": "lab dist/tests",
+    "test": "nyc mocha",
     "lint": "prettier --write '**/*.ts'"
   },
   "repository": {
@@ -28,15 +23,18 @@
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
     "@hapi/code": "^8.0.1",
-    "@hapi/lab": "^22.0.4",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^14.0.1",
     "husky": "^4.2.5",
+    "mocha": "^7.1.2",
     "npm-check": "^5.9.2",
+    "nyc": "^15.0.1",
     "prettier": "^2.0.5",
-    "pretty-quick": "^2.0.1"
+    "pretty-quick": "^2.0.1",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.9.2"
   },
   "dependencies": {
-    "@types/node": "^14.0.1",
-    "typescript": "^3.9.2",
     "vm2": "^3.9.2"
   },
   "engines": {

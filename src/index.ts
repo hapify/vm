@@ -69,9 +69,7 @@ export class HapifyVM {
 			result = vm.run(wrappedContent);
 		} catch (error) {
 			// Check error
-			/* $lab:coverage:off$ */
 			if (typeof error.message !== 'string' || typeof error.stack !== 'string') {
-				/* $lab:coverage:on$ */
 				throw new IntegrityError('Invalid error');
 			}
 
@@ -82,9 +80,7 @@ export class HapifyVM {
 			// Parse error
 			const evalError = new EvaluationError(error.message);
 			const matches = this.stackRegex.exec(error.stack);
-			/* $lab:coverage:off$ */
 			if (matches) {
-				/* $lab:coverage:on$ */
 				const lineNumber = Number(matches[1]);
 				const columnNumber = Number(matches[2]);
 				evalError.details = `Error: ${evalError.message}. Line: ${lineNumber}, Column: ${columnNumber}`;
