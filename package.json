@@ -17,7 +17,7 @@
     "vm"
   ],
   "author": "Edouard Demotes-Mainard <edouard@tractr.net>",
-  "license": "ISC",
+  "license": "MIT",
   "homepage": "https://github.com/hapify/vm#readme",
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
