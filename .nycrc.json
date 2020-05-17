@@ -10,7 +10,8 @@
     "src/**/*.ts"
   ],
   "exclude": [
-    "src/**/*.spec.*"
+    "dist",
+    "src/**/*.spec.ts"
   ],
   "require": [
     "ts-node/register"

@@ -1,12 +1,14 @@
 {
   "name": "hapify-vm",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Sandbox for JavaScript code",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "update": "npm-check -u",
     "test": "nyc mocha",
-    "lint": "prettier --write '**/*.ts'"
+    "lint": "prettier --write '**/*.ts'",
+    "build": "rimraf dist && tsc -p ."
   },
   "repository": {
     "type": "git",
@@ -31,6 +33,7 @@
     "nyc": "^15.0.1",
     "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1",
+    "rimraf": "^3.0.2",
     "ts-node": "^8.10.1",
     "typescript": "^3.9.2"
   },
@@ -43,7 +46,7 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "pretty-quick --staged --pattern \"**/*.ts\""
+      "pre-commit": "npm run build && pretty-quick --staged --pattern \"**/*.ts\""
     }
   }
 }
