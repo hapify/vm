@@ -1,6 +1,6 @@
 {
   "name": "hapify-vm",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Sandbox for JavaScript code",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -41,7 +41,7 @@
     "vm2": "^3.9.2"
   },
   "engines": {
-    "node": ">=13"
+    "node": ">=9"
   },
   "husky": {
     "hooks": {
