@@ -11,7 +11,7 @@ This repository provides a secured sandbox to execute unsafe JavaScript code
 ### Basic usage
 
 ```typescript
-import { HapifyVM } from 'hapify-vm';
+import { HapifyVM } from '@hapify/vm';
 
 const script = `const concat = a + b; return concat;`;
 const result = new HapifyVM().run(script, { a: 'hello', b: 'world' }); // result = 'hello world'
@@ -20,7 +20,7 @@ const result = new HapifyVM().run(script, { a: 'hello', b: 'world' }); // result
 ### Advanced usage
 
 ```typescript
-import { HapifyVM } from 'hapify-vm';
+import { HapifyVM } from '@hapify/vm';
 
 const script = `const sum = a + b; return sum;`;
 const options = {
@@ -29,12 +29,3 @@ const options = {
 };
 const result = new HapifyVM(options).run(script, { a: 1, b: 2 }); // result = 3
 ```
-
-## Errors sent by this module
-
-Errors range: 6000 to 6999
-
-- 6001 (VmOutputError): Thrown when the script does not return a string or undefined.
-- 6002 (VmEvaluationError): Thrown when the evaluation of the JS script causes an error.
-- 6003 (VmTimeoutError): Thrown when the JS script is too long to process.
-- 6004 (VmIntegrityError): Thrown when the script throws a modified error.
