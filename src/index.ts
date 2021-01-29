@@ -3,8 +3,9 @@ import { VM } from 'vm2';
 const SECOND = 1000;
 
 interface HapifyVMOptions {
-	timeout?: number;
-	allowAnyOutput?: boolean;
+	timeout: number;
+	allowAnyOutput: boolean;
+	eval: boolean;
 }
 
 export class OutputError extends Error {
@@ -32,6 +33,7 @@ export class HapifyVM {
 	private defaultOptions: HapifyVMOptions = {
 		timeout: SECOND,
 		allowAnyOutput: false,
+		eval: false,
 	};
 	/** Actual options */
 	private options: HapifyVMOptions;
@@ -43,7 +45,7 @@ export class HapifyVM {
 	private stackRegex = /vm\.js:([0-9]+):([0-9]+)/m;
 
 	/** Constructor */
-	constructor(options: HapifyVMOptions = {}) {
+	constructor(options: Partial<HapifyVMOptions> = {}) {
 		this.options = Object.assign({}, this.defaultOptions, options);
 	}
 
@@ -60,7 +62,7 @@ export class HapifyVM {
 			timeout: this.options.timeout,
 			sandbox: Object.assign(context, this.forbiddenObjects),
 			compiler: 'javascript',
-			eval: false,
+			eval: this.options.eval,
 			wasm: false,
 		});
 		const wrappedContent = this.wrap(content);
