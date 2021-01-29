@@ -49,7 +49,7 @@ describe('usage', () => {
 			expect(e.name).to.equal('VmEvaluationError');
 			expect(e.code).to.equal(6002);
 			expect(e.message).to.equal('a is not defined');
-			expect(e.details).to.be.a.string();
+			expect(e.details).to.equal(`Error: a is not defined. Line: 1, Column: 15`);
 			expect(e.lineNumber).to.equal(1);
 			expect(e.columnNumber).to.equal(15);
 		}

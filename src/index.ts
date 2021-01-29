@@ -83,10 +83,10 @@ export class HapifyVM {
 			const evalError = new EvaluationError(error.message);
 			const matches = this.stackRegex.exec(error.stack);
 			if (matches) {
-				const lineNumber = Number(matches[1]);
+				const lineNumber = Number(matches[1]) - 1; // Minus 1 for wrapper
 				const columnNumber = Number(matches[2]);
 				evalError.details = `Error: ${evalError.message}. Line: ${lineNumber}, Column: ${columnNumber}`;
-				evalError.lineNumber = lineNumber - 1; // Minus 1 for wrapper
+				evalError.lineNumber = lineNumber;
 				evalError.columnNumber = columnNumber;
 			}
 
