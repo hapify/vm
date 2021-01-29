@@ -1,6 +1,7 @@
 interface HapifyVMOptions {
-    timeout?: number;
-    allowAnyOutput?: boolean;
+    timeout: number;
+    allowAnyOutput: boolean;
+    eval: boolean;
 }
 export declare class OutputError extends Error {
     code: number;
@@ -31,7 +32,7 @@ export declare class HapifyVM {
     /** RegEx used to extract error's line & column */
     private stackRegex;
     /** Constructor */
-    constructor(options?: HapifyVMOptions);
+    constructor(options?: Partial<HapifyVMOptions>);
     /** Wrap content in auto-executable function */
     private wrap;
     /** Execute content */

@@ -45,6 +45,7 @@ class HapifyVM {
         this.defaultOptions = {
             timeout: SECOND,
             allowAnyOutput: false,
+            eval: false,
         };
         /** RegEx used to extract error's line & column */
         this.stackRegex = /vm\.js:([0-9]+):([0-9]+)/m;
@@ -61,7 +62,7 @@ class HapifyVM {
             timeout: this.options.timeout,
             sandbox: Object.assign(context, this.forbiddenObjects),
             compiler: 'javascript',
-            eval: false,
+            eval: this.options.eval,
             wasm: false,
         });
         const wrappedContent = this.wrap(content);
