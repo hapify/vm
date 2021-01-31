@@ -4,7 +4,7 @@
 
 This repository provides a secured sandbox to execute unsafe JavaScript code
 
-[![Build Status](https://travis-ci.org/hapify/vm.svg?branch=master)](https://travis-ci.org/hapify/vm) [![codecov](https://codecov.io/gh/hapify/vm/branch/master/graph/badge.svg)](https://codecov.io/gh/hapify/vm)
+[![Build Status](https://api.travis-ci.com/hapify/vm.svg?branch=master)](https://api.travis-ci.com/hapify/vm) [![codecov](https://codecov.io/gh/hapify/vm/branch/master/graph/badge.svg)](https://codecov.io/gh/hapify/vm)
 
 ## Usage
 
